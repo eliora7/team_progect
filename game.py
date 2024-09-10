@@ -1,2 +1,2 @@
 import pygame
-print("hiiii")
+print("hello")
