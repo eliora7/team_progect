@@ -135,6 +135,12 @@ while running:
                 # Shows the embedded screen for a second:
                 pygame.time.delay(1000)
 
+            # Pressing the number buttons 1-9 on the keyboard:
+            elif event.key in NUM_KEYBOARD:
+                print("hello")
+
+            pygame.display.flip()
+
         # Testing for touching the mine:
         if (matrix[index_player[1] + 3][index_player[0]] == "mine"
                 or matrix[index_player[1] + 3][index_player[0] + 1] == "mine"):

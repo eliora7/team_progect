@@ -1,4 +1,5 @@
 import pygame
+
 pygame.init()
 
 # All game images:
@@ -26,3 +27,6 @@ FLAG_INDEX_LIST = [[24, 49], [24, 48], [24, 47], [24, 46], [23, 49], [23, 48], [
                    [22, 47], [22, 46]]
 PLAYER_START_INDEX = [[0, 0], [0, 1], [1, 0], [1, 1], [2, 0], [2, 1], [3, 0], [3, 1]]
 PLAYER_IN_MATRIX = "player"
+# PART 2:
+NUM_KEYBOARD = [pygame.K_1, pygame.K_2, pygame.K_3, pygame.K_4, pygame.K_5, pygame.K_6, pygame.K_7,
+                pygame.K_8, pygame.K_9]
