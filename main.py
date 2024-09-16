@@ -138,12 +138,12 @@ while running:
             # Pressing the number buttons 1-9 on the keyboard:
             elif event.key in NUM_KEYBOARD:
                 # Defining relevant variables:
-                save_width = str(width)
-                save_length = str(length)
-                save_p_x = str(progress_on_x)
-                save_p_y = str(progress_on_y)
-                save_grass = str(list_grass_index)
-                save_mine = str(list_mine_index)
+                save_width = str(width) + '\n'
+                save_length = str(length) + '\n'
+                save_p_x = str(progress_on_x) + '\n'
+                save_p_y = str(progress_on_y) + '\n'
+                save_grass = str(list_grass_index) + '\n'
+                save_mine = str(list_mine_index) + '\n'
 
                 time_down = pygame.time.get_ticks()
                 time_elapsed = 0.0
@@ -161,17 +161,17 @@ while running:
                         file.write(save_p_x)
                         file.write(save_p_y)
                         file.close()
-
+                        # need_to_run = False
+                        running = False
+                        # need_to_run = False
                     elif time_elapsed - time_down > 1000:
                         file = open(DATABASE, 'r')
-                        file.read()
-                        list_grass_index = int(save_grass)
-                        list_mine_index = int(save_mine)
-                        width = int(save_width)
-                        length = int(save_length)
-                        progress_on_x = int(save_p_x)
-                        progress_on_y = int(save_p_y)
-
+                        list_grass_index = int(file.readline(0))
+                        list_mine_index = int(file.readline(1))
+                        width = int(file.readline(2))
+                        length = int(file.readline(3))
+                        progress_on_x = int(file.readline(4))
+                        progress_on_y = int(file.readline(5))
                         file.close()
 
             pygame.display.flip()
