@@ -30,3 +30,4 @@ PLAYER_IN_MATRIX = "player"
 # PART 2:
 NUM_KEYBOARD = [pygame.K_1, pygame.K_2, pygame.K_3, pygame.K_4, pygame.K_5, pygame.K_6, pygame.K_7,
                 pygame.K_8, pygame.K_9]
+DATABASE = "file.txt"

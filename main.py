@@ -137,7 +137,42 @@ while running:
 
             # Pressing the number buttons 1-9 on the keyboard:
             elif event.key in NUM_KEYBOARD:
-                print("hello")
+                # Defining relevant variables:
+                save_width = str(width)
+                save_length = str(length)
+                save_p_x = str(progress_on_x)
+                save_p_y = str(progress_on_y)
+                save_grass = str(list_grass_index)
+                save_mine = str(list_mine_index)
+
+                time_down = pygame.time.get_ticks()
+                time_elapsed = 0.0
+                need_to_run = True
+                while need_to_run:
+                    if event.type == pygame.KEYUP:
+                        time_elapsed = pygame.time.get_ticks()
+                        need_to_run = False
+                    if time_elapsed - time_down <= 1000:
+                        file = open(DATABASE, 'w')
+                        file.write(save_grass)
+                        file.write(save_mine)
+                        file.write(save_width)
+                        file.write(save_length)
+                        file.write(save_p_x)
+                        file.write(save_p_y)
+                        file.close()
+
+                    elif time_elapsed - time_down > 1000:
+                        file = open(DATABASE, 'r')
+                        file.read()
+                        list_grass_index = int(save_grass)
+                        list_mine_index = int(save_mine)
+                        width = int(save_width)
+                        length = int(save_length)
+                        progress_on_x = int(save_p_x)
+                        progress_on_y = int(save_p_y)
+
+                        file.close()
 
             pygame.display.flip()
 
