@@ -165,13 +165,35 @@ while running:
                                 running = False
                             else:
                                 file = open(DATABASE, 'r')
-                                list_grass_index = int(file.readline())
-                                list_mine_index = int(file.readline())
+                                list_grass_index = file.readline()
+                                after_split = list_grass_index.split("], [")
+                                first = after_split[0].split("[[")[1]
+                                last = after_split[-1].split("]]")[0]
+                                after_split[0] = first
+                                after_split[-1] = last
+                                new_total_list = []
+                                for string in after_split:
+                                    a, b = string.split(", ")
+                                    new_total_list.append([int(a), int(b)])
+                                list_grass_index = new_total_list
+                                list_mine_index = file.readline()
+                                after_split_mine = list_mine_index.split("], [")
+                                first_mine = after_split_mine[0].split("[[")[1]
+                                last_mine = after_split_mine[-1].split("]]")[0]
+                                after_split_mine[0] = first_mine
+                                after_split_mine[-1] = last_mine
+                                new_total_list_mine = []
+                                for string in after_split_mine:
+                                    a, b = string.split(", ")
+                                    new_total_list_mine.append([int(a), int(b)])
+                                list_mine_index = new_total_list_mine
+
                                 width = int(file.readline())
                                 length = int(file.readline())
                                 progress_on_x = int(file.readline())
                                 progress_on_y = int(file.readline())
                                 file.close()
+                                screen.blit(LOADING, (0, 0))
                             need_to_run = False
 
             pygame.display.flip()
