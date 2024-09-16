@@ -57,6 +57,7 @@ progress_on_y = 0
 # Game loop:
 running = True
 while running:
+    pygame.display.flip()
     # Applying everything required to start the game:
     screen.fill("dark green")
     for index in list_grass_index:
@@ -162,7 +163,12 @@ while running:
                                 file.write(save_p_x)
                                 file.write(save_p_y)
                                 file.close()
+                                screen.blit(SAVED, (0, 0))
+                                screen_display = pygame.display
+                                screen_display.update()
+                                pygame.time.delay(1000)
                                 running = False
+
                             else:
                                 file = open(DATABASE, 'r')
                                 list_grass_index = file.readline()
@@ -194,6 +200,9 @@ while running:
                                 progress_on_y = int(file.readline())
                                 file.close()
                                 screen.blit(LOADING, (0, 0))
+                                screen_display = pygame.display
+                                screen_display.update()
+                                pygame.time.delay(1000)
                             need_to_run = False
 
             pygame.display.flip()

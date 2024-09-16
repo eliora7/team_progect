@@ -23,6 +23,8 @@ WELCOME = pygame.image.load("welcome.png")
 WELCOME = pygame.transform.scale(WELCOME, (300, 40), )
 LOADING = pygame.image.load("loading.png")
 LOADING = pygame.transform.scale(LOADING, (500, 250), )
+SAVED = pygame.image.load("saved.png")
+SAVED = pygame.transform.scale(SAVED, (500, 250), )
 # Constants:
 FLAG_INDEX_LIST = [[24, 49], [24, 48], [24, 47], [24, 46], [23, 49], [23, 48], [23, 47], [23, 46], [22, 49], [22, 48],
                    [22, 47], [22, 46]]
